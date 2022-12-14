@@ -15,6 +15,7 @@
     type="number"
     [value]="selectedQuantity"
     [ngClass]="counterInputClass"
+    (change)="onChanged($event)"
   />
   <button
     id="product-returns-increment-quantity"

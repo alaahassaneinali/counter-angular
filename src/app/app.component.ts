@@ -17,7 +17,7 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 })
 export class AppComponent {
   @Input()
-  readonly maxQuantity: number = 0;
+  readonly maxQuantity: number = 5;
   @Output()
   selectedQuantity = 0;
 
@@ -57,7 +57,9 @@ export class AppComponent {
     this.validateQuantity();
   }
 
-  onChanged(_newQuantity: number): void {
+  onChanged(e: Event): void {
+    debugger;
+    let _newQuantity = e.target['value'];
     this.selectedQuantity = 0;
     if (Number(_newQuantity) < 0 || Number(_newQuantity) > this.maxQuantity) {
       this.selectedQuantity = this.maxQuantity;
@@ -66,6 +68,7 @@ export class AppComponent {
       this.selectedQuantity = Number(_newQuantity);
       this.validateQuantity();
     }
+    document.getElementById(e.target['id'])['value'] = this.selectedQuantity;
   }
 
   public get counterMainClass(): string[] {
