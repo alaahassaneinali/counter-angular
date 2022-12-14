@@ -1,0 +1,32 @@
+<div [ngClass]="counterMainClass">
+  <button
+    id="product-returns-decrement-quantity"
+    type="button"
+    (click)="onDecrement()"
+    [disabled]="!enableDecrement"
+    [ngClass]="
+      enableDecrement ? counterButtonClass : counterButtonDisabledClass
+    "
+  >
+    -
+  </button>
+  <input
+    id="inputQuantityLabel"
+    type="number"
+    [value]="selectedQuantity"
+    [ngClass]="counterInputClass"
+  />
+  <button
+    id="product-returns-increment-quantity"
+    type="button"
+    (click)="onIncrement()"
+    [disabled]="!enableIncrement"
+    [ngClass]="
+      enableIncrement ? counterButtonClass : counterButtonDisabledClass
+    "
+  >
+    +
+  </button>
+</div>
+
+<!-- (input)="onChanged($event.target.value)" -->
